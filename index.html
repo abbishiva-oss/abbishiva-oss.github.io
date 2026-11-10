@@ -8,6 +8,12 @@
 <meta property="og:title" content="Abbi Shivaparan">
 <meta property="og:description" content="Information Science at UMD. I build data and AI tools, and research how far we can trust them.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://abbishiva-oss.github.io/">
+<meta property="og:image" content="https://abbishiva-oss.github.io/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://abbishiva-oss.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316171b'/%3E%3Cpath d='M18 46 30 18h4l12 28' stroke='%23fff' stroke-width='5' fill='none'/%3E%3Cpath d='M23 36h18' stroke='%233a55ff' stroke-width='5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -179,6 +185,16 @@ tr:last-child td{border-bottom:0}
 .refs a{word-break:break-all}
 .fn{font-size:.86rem;color:var(--muted);margin-top:18px;max-width:66ch;font-style:italic}
 
+.shot{margin:4px 0 26px;padding:0;background:none;border:0}
+.shot a{display:block;border:1px solid var(--rule2);border-radius:8px;overflow:hidden;cursor:zoom-in;background:var(--panel);transition:border-color .15s}
+.shot a:hover{border-color:var(--ink)}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{margin-top:10px}
+.shots2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,10,12,.88);display:none;align-items:center;justify-content:center;padding:28px;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb button{position:absolute;top:16px;right:18px;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:6px;padding:4px 10px;font:inherit;cursor:pointer}
 .pindex{border-top:1px solid var(--rule2)}
 .prow{border-bottom:1px solid var(--rule)}
 .prow summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) 56px 22px;gap:20px;align-items:baseline;padding:20px 0}
@@ -293,7 +309,7 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
 }
 @media (max-width:620px){
   body{font-size:16px}
-  .grid2,.courses,.two,.go,.looking,.kinds,.how{grid-template-columns:1fr}
+  .grid2,.courses,.two,.go,.looking,.kinds,.how,.shots2{grid-template-columns:1fr}
   .dg-svg{display:none}
   .dg-list{display:block}
   .pipe{flex-direction:column}
@@ -560,7 +576,7 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
 
         <h3 class="ph">Other research</h3>
         <div class="prose">
-          <p><b>Reaching new young voters in New Carrollton.</b> A research pitch for a city council. New Carrollton has talked about letting 16 and 17 year olds vote in local elections, and if that happens, the city suddenly has a group of voters who probably don't follow city channels at all. Our pitch was simple: don't assume teens look for information the same way adults do. Find out first.</p>
+          <p><b>Reaching new young voters in New Carrollton.</b> A research pitch for a city council. New Carrollton has talked about letting 16- and 17-year-olds vote in local elections, and if that happens, the city suddenly has a group of voters who probably don't follow city channels at all. Our pitch was simple: don't assume teens look for information the same way adults do. Find out first.</p>
           <p>We designed an online survey about where teens would actually look for local election info, what confuses them, and which formats would help, plus one open question so they could tell us what we missed. We also used 2010 to 2020 Census data to show the city is growing and getting more diverse, which is why we recommended reaching young voters through schools, community networks, and more than one language instead of just the city website.</p>
         </div>
 
@@ -584,6 +600,7 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
             <summary><h3>DataProcessBot</h3><span class="d">Desktop app for asking questions about your own documents</span><span class="y">2026</span><span class="pm"></span></summary>
             <div class="pbody">
               <div class="links"><a href="https://github.com/abbishiva-oss">Source code ↗</a></div>
+              <figure class="shot"><a href="img/dataprocessbot.webp"><img src="img/dataprocessbot.webp" alt="DataProcessBot desktop app showing the document list and the chat view" width="1400" height="875" loading="lazy"></a><figcaption>The desktop app with my test documents loaded. Click to enlarge.</figcaption></figure>
               <div class="two">
                 <div><div class="k2">Why I built it</div><p>During my Pfizer externship I built a RAG pipeline that could answer questions about pharma documents. It worked, but it lived in a notebook, and nobody is going to open a notebook just to ask a PDF a question. I wanted something you could actually open and use, and that wouldn't make stuff up when the answer wasn't in your files.</p></div>
                 <div><div class="k2">What it does</div><ul><li>Upload documents into a desktop app and ask questions about them</li><li>Answers come only from your files, with the source file cited</li><li>Auto-summarize, extract key info, and flag problems in each file</li><li>Run several of those actions on every upload at once</li></ul></div>
@@ -623,6 +640,7 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
             <summary><h3>SubleaseHer</h3><span class="d">Full-stack sublease marketplace for college students</span><span class="y">2026</span><span class="pm"></span></summary>
             <div class="pbody">
               <div class="links"><a href="https://subleaseher.vercel.app">Live site ↗</a><a href="https://github.com/abbishiva-oss">Source code ↗</a></div>
+              <figure class="shot"><a href="img/sublease.webp"><img src="img/sublease.webp" alt="SubleaseHer home page" width="1400" height="739" loading="lazy"></a><figcaption>The live home page. Click to enlarge.</figcaption></figure>
               <div class="two">
                 <div><div class="k2">Why I built it</div><p>Finding a sublease in college is a mess. It's group chats, random Instagram posts, and spreadsheets, and you end up giving your number to strangers. I wanted one place where students could post a place, filter for what they actually need, and message each other without leaving the site.</p></div>
                 <div><div class="k2">What it does</div><ul><li>Accounts with profiles: name, pronouns, university, bio, and photo</li><li>Create, edit, pause, or delete listings with photo galleries</li><li>Search by keyword, location, price range, beds, and move-in dates</li><li>Message other users about a specific listing, with unread counts</li><li>Save favorites and leave 1 to 5 star reviews</li><li>A dashboard with your stats, listings, messages, and profile</li></ul></div>
@@ -649,14 +667,15 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
             <summary><h3>NBA Player DNA</h3><span class="d">Clustering 500+ players by how they actually play</span><span class="y">2026</span><span class="pm"></span></summary>
             <div class="pbody">
               <div class="links"><a href="https://nba-player-dna.streamlit.app">Live dashboard ↗</a><a href="https://github.com/abbishiva-oss">Source code ↗</a></div>
+              <figure class="shot"><a href="img/nba.webp"><img src="img/nba.webp" alt="NBA Player DNA Player Profile page for LeBron James, showing stat cards, his archetype, and a season comparison table" width="1400" height="875" loading="lazy"></a><figcaption>The Player Profile page on the live dashboard. Click to enlarge.</figcaption></figure>
               <div class="nums"><div><b>500+</b><span>players</span></div><div><b>15</b><span>stats per player</span></div><div><b>8</b><span>archetypes</span></div><div><b>5</b><span>dashboard pages</span></div></div>
               <div class="two">
                 <div><div class="k2">Why I built it</div><p>Listed positions don't say much about how someone actually plays anymore. I wanted to see what you'd get if you let the stats group players instead, and then use that to answer a real question: who would actually fit on a given roster?</p></div>
                 <div><div class="k2">What it does</div><ul><li>Player profiles with stat cards, a shot chart, and where they sit on the cluster map</li><li>Side-by-side player comparison</li><li>A team fit analyzer that ranks free agent targets</li><li>League overview and season-by-season trends</li></ul></div>
               </div>
               <figure>
-                <div class="pipe" role="img" aria-label="nba_api stats into SQLite, feature engineering, PCA, K-Means">
-                  <div class="s"><b>nba_api</b><span>stats + shots</span></div><div class="a">→</div>
+                <div class="pipe" role="img" aria-label="Basketball Reference stats into SQLite, feature engineering, PCA, K-Means">
+                  <div class="s"><b>Stats data</b><span>Basketball Reference</span></div><div class="a">→</div>
                   <div class="s"><b>SQLite</b><span>clean tables</span></div><div class="a">→</div>
                   <div class="s"><b>Features</b><span>15 stats, scaled</span></div><div class="a">→</div>
                   <div class="s"><b>PCA</b><span>fewer dimensions</span></div><div class="a">→</div>
@@ -673,7 +692,7 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
               </dl>
               <div class="k2">What I learned</div>
               <p>Naming the clusters was honestly harder than building them. The math groups players together, but it doesn't tell you what to call the group or whether it makes sense to someone who actually watches the games. I also learned how much the filters matter. Without the games and minutes cutoffs, a guy who played three minutes once can end up looking like a superstar.</p>
-              <ul class="stack"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>Plotly</li><li>Streamlit</li><li>SQLite</li><li>nba_api</li></ul>
+              <ul class="stack"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>Plotly</li><li>Streamlit</li><li>SQLite</li></ul>
             </div>
           </details>
 
@@ -692,6 +711,7 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
             <summary><h3>PDF Research Buddy</h3><span class="d">Document Q&amp;A chatbot with Gradio and Gemini</span><span class="y">2026</span><span class="pm"></span></summary>
             <div class="pbody">
               <p>This started as a tutorial assignment, but I ended up changing most of it. You upload PDFs, ask questions, and Gemini answers using only the text of the document.</p>
+              <figure class="shot"><div class="shots2"><a href="img/pdfbuddy-ui.webp"><img src="img/pdfbuddy-ui.webp" alt="PDF Research Buddy two-column interface with upload on the left and chat on the right" width="1400" height="752" loading="lazy"></a><a href="img/pdfbuddy-ask.webp"><img src="img/pdfbuddy-ask.webp" alt="PDF Research Buddy answering a question about an uploaded document" width="1400" height="645" loading="lazy"></a></div><figcaption>The two-column layout, and a question being answered. Click to enlarge.</figcaption></figure>
               <div class="k2">What I added beyond the tutorial</div>
               <ul>
                 <li><b>Multi-file upload.</b> The tutorial only handled one file, so I let you upload several and switch between them with a dropdown.</li>
@@ -834,6 +854,7 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
         <div class="next"><a href="#resume">← Resume</a><a class="r" href="#home">Back to<b>Home →</b></a></div>
       </section>
 
+      <div class="lb" id="lb" role="dialog" aria-label="Enlarged screenshot"><button type="button" aria-label="Close">Close</button><img alt=""></div>
       <footer><span>© 2026 Abbilash Shivaparan</span><span>Last updated November 2026</span></footer>
     </main>
   </div>
@@ -889,6 +910,10 @@ route();
 
 const copy=document.getElementById('copy'),lbl=document.getElementById('copylbl');
 copy.onclick=async()=>{try{await navigator.clipboard.writeText(copy.dataset.email);lbl.textContent='Copied'}catch(e){location.href='mailto:'+copy.dataset.email}setTimeout(()=>lbl.textContent='Copy',1800)};
+const lb=document.getElementById('lb'),lbImg=lb.querySelector('img');
+document.querySelectorAll('.shot a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();lbImg.src=a.href;lbImg.alt=a.querySelector('img').alt;lb.classList.add('open')}));
+lb.addEventListener('click',()=>lb.classList.remove('open'));
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
 </script>
 </body>
 </html>

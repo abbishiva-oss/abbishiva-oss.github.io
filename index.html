@@ -171,6 +171,13 @@ tr:last-child td{border-bottom:0}
 .ex-v{margin:16px 0 6px;font-size:.92rem;color:var(--ink2)}
 .ex-v b{color:var(--ink);font-weight:600}
 .ex-why{margin:0;font-size:.94rem;color:var(--ink2);max-width:66ch}
+.kinds{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kinds>div{border:1px solid var(--rule2);border-radius:7px;padding:16px 18px;background:var(--bg)}
+.kinds .big{border-color:var(--accent);background:var(--accent-bg)}
+.kinds h5{margin:0 0 8px;font-family:var(--head);font-weight:600;font-size:.95rem}
+.kinds .big h5{color:var(--accent)}
+.kinds ul{margin:0;padding-left:1.1rem;font-size:.92rem;color:var(--ink2)}
+.kinds li{margin-bottom:4px}
 .pindex{border-top:1px solid var(--rule2)}
 .prow{border-bottom:1px solid var(--rule)}
 .prow summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) 56px 22px;gap:20px;align-items:baseline;padding:20px 0}
@@ -262,6 +269,7 @@ footer a{color:var(--muted)}
   .dg-svg{display:none}
   .dg-list{display:block}
   .ex-pair{grid-template-columns:1fr}
+  .kinds{grid-template-columns:1fr}
   .ex-arrow{transform:rotate(90deg);height:20px}
   .pipe{flex-direction:column}
   .pipe .a{flex-basis:18px;transform:rotate(90deg)}
@@ -356,7 +364,7 @@ footer a{color:var(--muted)}
 
         <div class="abstract">
           <div class="k">Summary</div>
-          <p>Living reviews only work if breaking new papers into claims and evidence is cheap. We're testing whether AI can do that well enough to trust. Early review of a frontier model's output shows almost every evidence node it wrote still needed a human edit, and some of those edits changed what the result meant.</p>
+          <p>Living reviews only work if breaking new papers into claims and evidence is cheap. We're testing whether AI can do that well enough to trust. Early review suggests a lot of what the AI writes still needs a person to fix it, and some of those fixes change what a result actually means.</p>
         </div>
 
         <h4 class="ph">The problem</h4>
@@ -383,25 +391,23 @@ footer a{color:var(--muted)}
             <g class="n clm"><rect x="230" y="126" width="340" height="70" rx="7"/><text x="246" y="148" class="tg">CLAIM</text><text x="246" y="168">LLMs reach moderate accuracy on quality</text><text x="246" y="185">appraisal but can't replace expert judgment yet</text></g>
             <g class="n ep"><rect x="20" y="126" width="180" height="70" rx="7"/><text x="34" y="148" class="tg">PATTERN</text><text x="34" y="168">Accuracy lands around</text><text x="34" y="185">60 to 80% across papers</text></g>
             <g class="n ep"><rect x="600" y="126" width="180" height="70" rx="7"/><text x="614" y="148" class="tg">PATTERN</text><text x="614" y="168">Agreement varies sharply</text><text x="614" y="185">by checklist item</text></g>
-            <g class="n evd ed"><rect x="20" y="290" width="140" height="92" rx="7"/><text x="32" y="311" class="tg">EVIDENCE</text><text x="32" y="331">GPT-3.5 turbo:</text><text x="32" y="348">66.9% correct on</text><text x="32" y="365">STROBE questions</text></g>
+            <g class="n evd"><rect x="20" y="290" width="140" height="92" rx="7"/><text x="32" y="311" class="tg">EVIDENCE</text><text x="32" y="331">GPT-3.5 turbo:</text><text x="32" y="348">66.9% correct on</text><text x="32" y="365">STROBE questions</text></g>
             <g class="n evd"><rect x="175" y="290" width="140" height="92" rx="7"/><text x="187" y="311" class="tg">EVIDENCE</text><text x="187" y="331">GPT-4: lowest at</text><text x="187" y="348">44.1% on STROBE</text><text x="187" y="365">questions</text></g>
-            <g class="n evd ed"><rect x="330" y="290" width="140" height="92" rx="7"/><text x="342" y="311" class="tg">EVIDENCE</text><text x="342" y="331">GPT-4: 61% match</text><text x="342" y="348">with Cochrane on</text><text x="342" y="365">risk of bias</text></g>
+            <g class="n evd"><rect x="330" y="290" width="140" height="92" rx="7"/><text x="342" y="311" class="tg">EVIDENCE</text><text x="342" y="331">GPT-4: 61% match</text><text x="342" y="348">with Cochrane on</text><text x="342" y="365">risk of bias</text></g>
             <g class="n evd"><rect x="485" y="290" width="140" height="92" rx="7"/><text x="497" y="311" class="tg">EVIDENCE</text><text x="497" y="331">Four LLMs averaged</text><text x="497" y="348">73% on QUADAS-2</text><text x="497" y="365">assessments</text></g>
             <g class="n evd"><rect x="640" y="290" width="140" height="92" rx="7"/><text x="652" y="311" class="tg">EVIDENCE</text><text x="652" y="331">Worst accuracy on</text><text x="652" y="348">software and funding</text><text x="652" y="365">questions</text></g>
-            <circle class="edot" cx="150" cy="302" r="5"/><circle class="edot" cx="460" cy="302" r="5"/>
-          </svg>
+                      </svg>
           <ul class="dg-list" aria-hidden="true">
             <li class="que"><span>Question</span>Can LLMs replace or augment human raters in evidence appraisal?</li>
             <li class="clm"><span>Claim, answers the question</span>LLMs reach moderate accuracy on quality appraisal but can't replace expert judgment yet</li>
             <li class="ep"><span>Pattern</span>Accuracy lands around 60 to 80% across papers</li>
             <li class="ep"><span>Pattern</span>Agreement varies sharply by checklist item</li>
-            <li class="evd ed"><span>Evidence, supports the claim</span>GPT-3.5 turbo: 66.9% correct on STROBE questions</li>
+            <li class="evd"><span>Evidence, supports the claim</span>GPT-3.5 turbo: 66.9% correct on STROBE questions</li>
             <li class="evd"><span>Evidence, supports the claim</span>GPT-4: lowest at 44.1% on STROBE questions</li>
-            <li class="evd ed"><span>Evidence, supports the claim</span>GPT-4: 61% agreement with Cochrane on risk of bias</li>
+            <li class="evd"><span>Evidence, supports the claim</span>GPT-4: 61% agreement with Cochrane on risk of bias</li>
             <li class="evd"><span>Evidence, supports the claim</span>Four LLMs averaged 73% on QUADAS-2 assessments</li>
             <li class="evd"><span>Evidence, supports the claim</span>Worst accuracy on software and funding questions</li>
           </ul>
-          <div class="key"><span><i style="background:var(--accent)"></i>Needed a human edit in review</span></div>
           <figcaption><b>Fig. 1</b>One claim's neighborhood in the lab's discourse graph, shortened for space. Every one of these nodes was drafted by AI.</figcaption>
         </figure>
 
@@ -410,7 +416,7 @@ footer a{color:var(--muted)}
           <div><b>27</b><span>papers on using AI to evaluate research</span></div>
           <div><b>205</b><span>nodes already drafted by a frontier model</span></div>
           <div><b>0</b><span>of those reviewed by a person when we started</span></div>
-          <div><b>47<small>/49</small></b><span>evidence nodes reviewed so far needed edits</span></div>
+          <div><b>3</b><span>sources compared: frontier model, local model, human review</span></div>
         </div>
         <figure class="fade">
           <div class="pipe" role="img" aria-label="27 papers, frontier model drafts 205 nodes, human review labels each node, a local model runs on the same papers, everything is scored">
@@ -425,59 +431,19 @@ footer a{color:var(--muted)}
 
         <h4 class="ph">Early findings</h4>
         <div class="prose">
-          <p>A reviewer in the lab labels every AI node as Correct, Edit, or Delete and writes a short note about why. Out of the first 49 evidence nodes, not one was correct as written. 47 needed edits and the other two didn't apply. Research questions did a little better, with 4 out of 26 correct, and a few had to be split into two.</p>
-          <p>To be fair, "Edit" doesn't mean the AI was totally wrong, and a lot of the fixes are small. So we grouped the 41 written notes by what was actually wrong.</p>
+          <p>A reviewer in the lab goes through the AI's nodes and labels each one as Correct, Edit, or Delete, with a short note about why. So far, most of the nodes that have been reviewed needed at least some editing. Some research questions even had to be split into two.</p>
+          <p>To be fair, "Edit" doesn't mean the AI was totally wrong, and a lot of the fixes are small. So we grouped the reviewer's notes by what was actually wrong, and they fell into two kinds of problems.</p>
         </div>
         <figure class="fade">
-          <div class="bars" id="bars">
-            <div class="bar"><span class="l">Missing context</span><div class="t"><div class="f" data-v="20"></div></div><span class="v">~20</span></div>
-            <div class="bar"><span class="l">Wording and style</span><div class="t"><div class="f" data-v="18"></div></div><span class="v">~18</span></div>
-            <div class="bar hi"><span class="l">Reframed, meaning changed</span><div class="t"><div class="f" data-v="8"></div></div><span class="v">~8</span></div>
-            <div class="bar hi"><span class="l">Quote didn't match node</span><div class="t"><div class="f" data-v="4"></div></div><span class="v">4</span></div>
-            <div class="bar hi"><span class="l">Dropped completely</span><div class="t"><div class="f" data-v="3"></div></div><span class="v">3</span></div>
+          <div class="kinds">
+            <div><h5>Smaller fixes</h5><ul><li>Missing context, like which model was tested or how many papers were in a study</li><li>Wording and style</li></ul></div>
+            <div class="big"><h5>Bigger problems for trust</h5><ul><li>Reframed so the meaning of the result changed</li><li>The quote didn't match what the node said</li><li>Nodes that had to be dropped completely</li></ul></div>
           </div>
-          <div class="key"><span><i style="background:var(--faint)"></i>Smaller fixes</span><span><i style="background:var(--accent)"></i>Problems for trust</span></div>
-          <figcaption><b>Fig. 3</b>Error types across 41 reviewer notes. One note can fall into more than one group.</figcaption>
+          <figcaption><b>Fig. 3</b>Types of problems in the reviewer's notes so far. Final counts will come with the report.</figcaption>
         </figure>
         <div class="prose">
           <p>The most common issue was missing context, like leaving out which model a study tested or how many papers were in it. The ones that worry me more are the reframes, where the way the AI wrote a node changed what the result actually meant. In one case, fixing it flipped a result from looking bad to looking really good. That's exactly the kind of mistake you can't let slide into a review people rely on.</p>
-          <p>Here are three real examples from the lab's benchmarking sheet, with the AI's draft next to what it looked like after review.</p>
         </div>
-        <figure class="fade ex">
-          <div class="ex-tabs" role="tablist" aria-label="Review examples">
-            <button role="tab" aria-selected="true" data-ex="0">Flipped the result</button>
-            <button role="tab" aria-selected="false" data-ex="1">Hid a bad score</button>
-            <button role="tab" aria-selected="false" data-ex="2">Two stats in one</button>
-          </div>
-          <div class="ex-panel" data-panel="0">
-            <div class="ex-pair">
-              <div class="ex-old"><span>AI draft</span>ChatGPT achieved perfect agreement with human raters on 3 of 12 PRISMA checklist items for systematic reviews but significant discrepancy on eligibility criteria (p=0.028)</div>
-              <div class="ex-arrow">→</div>
-              <div class="ex-new"><span>After review</span>There was no statistically significant difference between GPT 3.5 and human raters when applying 11 of 12 PRISMA items.</div>
-            </div>
-            <p class="ex-v"><b>Verdict: Edit, major.</b> Reframed around what was statistically significant instead of raw differences.</p>
-            <p class="ex-why">Same paper, same numbers. The AI's version makes ChatGPT sound unreliable, and the fixed version says it basically matched humans on 11 of 12 items. That's the flip I mentioned above.</p>
-          </div>
-          <div class="ex-panel" data-panel="1" hidden>
-            <div class="ex-pair">
-              <div class="ex-old"><span>AI draft</span>All four LLMs answered all seven IRB ethics case queries with homogeneous responses</div>
-              <div class="ex-arrow">→</div>
-              <div class="ex-new"><span>After review</span>Google Bard and GPT 3.5 identified 1 out of 7 issues correctly across IRB ethics cases.</div>
-            </div>
-            <p class="ex-v"><b>Verdict: Edit, major.</b> Added the model names and focused on accuracy instead of how similar the answers were.</p>
-            <p class="ex-why">This one goes the other way. "Homogeneous responses" sounds fine until you check, and the models only got 1 out of 7 right.</p>
-          </div>
-          <div class="ex-panel" data-panel="2" hidden>
-            <div class="ex-pair">
-              <div class="ex-old"><span>AI draft</span>57.4% of 308 researchers found GPT-4 feedback helpful and 82.4% found it more beneficial than at least some human reviewers</div>
-              <div class="ex-arrow">→</div>
-              <div class="ex-new"><span>After review</span>82.4% of researchers found GPT-4 feedback more helpful than at least some human reviewers.</div>
-            </div>
-            <p class="ex-v"><b>Verdict: Edit, major.</b> Focus on one stat.</p>
-            <p class="ex-why">Each evidence node is supposed to be one piece of evidence. Packing two stats into one makes it harder to link to the right claim later, which kind of defeats the point of the graph.</p>
-          </div>
-          <figcaption><b>Fig. 4</b>AI-drafted evidence nodes before and after human review. Reviews by Jay Patel, Chan Lab.</figcaption>
-        </figure>
 
         <h4 class="ph">How the plan changed</h4>
         <div class="prose"><p>Honestly, our project looks pretty different from what we pitched in our first lightning talk. Once we got into the real data, we found out half the study basically already existed. The AI's output was sitting right there, and what was missing was the human side to compare it against.</p></div>
@@ -714,7 +680,7 @@ document.querySelectorAll('section[id]').forEach(s=>so.observe(s));
 const fo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');fo.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('.fade').forEach(el=>fo.observe(el));
 const bars=document.getElementById('bars');
-new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){bars.querySelectorAll('.f').forEach(f=>f.style.width=(f.dataset.v/20*100)+'%');o.disconnect()}},{threshold:.4}).observe(bars);
+if(bars)new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){bars.querySelectorAll('.f').forEach(f=>f.style.width=(f.dataset.v/20*100)+'%');o.disconnect()}},{threshold:.4}).observe(bars);
 const copy=document.getElementById('copy'),lbl=document.getElementById('copylbl');
 copy.onclick=async()=>{try{await navigator.clipboard.writeText(copy.dataset.email);lbl.textContent='Copied'}catch(e){location.href='mailto:'+copy.dataset.email}setTimeout(()=>lbl.textContent='Copy',1800)};
 document.querySelectorAll('.ex-tabs button').forEach(b=>b.onclick=()=>{

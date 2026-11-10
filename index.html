@@ -195,6 +195,12 @@ tr:last-child td{border-bottom:0}
 .lb.open{display:flex}
 .lb img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .lb button{position:absolute;top:16px;right:18px;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:6px;padding:4px 10px;font:inherit;cursor:pointer}
+.avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;display:block;margin-bottom:18px;border:1px solid var(--rule2);background:var(--panel)}
+.avatar.sm{width:52px;height:52px;margin:0}
+.avatar.lg{width:140px;height:140px;margin:4px 0 0}
+.mrow{display:flex;align-items:center;gap:14px}
+.mrow b{font-weight:600;font-size:1.05rem}
+.story{display:grid;grid-template-columns:140px 1fr;gap:32px;align-items:start}
 .pindex{border-top:1px solid var(--rule2)}
 .prow{border-bottom:1px solid var(--rule)}
 .prow summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) 56px 22px;gap:20px;align-items:baseline;padding:20px 0}
@@ -309,7 +315,8 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
 }
 @media (max-width:620px){
   body{font-size:16px}
-  .grid2,.courses,.two,.go,.looking,.kinds,.how,.shots2{grid-template-columns:1fr}
+  .grid2,.courses,.two,.go,.looking,.kinds,.how,.shots2,.story{grid-template-columns:1fr}
+  .avatar.lg{width:96px;height:96px}
   .dg-svg{display:none}
   .dg-list{display:block}
   .pipe{flex-direction:column}
@@ -336,6 +343,7 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
 <div class="layout">
   <aside>
     <div class="who">
+      <img class="avatar" src="img/headshot.webp" alt="Abbilash Shivaparan" width="72" height="72">
       <h1>Abbilash Shivaparan</h1>
       <div class="role">Information Science, minor in Data Science<br>University of Maryland, Class of 2027</div>
       <p class="bio">I build data and AI tools, and I research how far we can actually trust them.</p>
@@ -377,7 +385,7 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
     <main id="main">
 
       <section class="page" id="home" data-title="Abbi Shivaparan">
-        <div class="mintro" style="display:none"><div class="avail" style="margin-top:0">Open to new grad 2027 roles</div></div>
+        <div class="mintro" style="display:none"><div class="mrow"><img class="avatar sm" src="img/headshot.webp" alt="Abbilash Shivaparan" width="52" height="52"><div><b>Abbilash Shivaparan</b><div class="avail" style="margin-top:2px">Open to new grad 2027 roles</div></div></div></div>
         <p class="statement">I build data and AI tools, <span>and lately I've been researching how far we can actually trust them.</span></p>
         <p class="lead">I'm Abbi, an Information Science student at the University of Maryland with a minor in Data Science. I've done data work at NJ TRANSIT, built AI document tools during a Pfizer externship, and right now I'm doing research in Joel Chan's lab on how well AI breaks down research papers. Most of what I do sits somewhere between data, software, and research, and this site is basically all of it in one place.</p>
         <dl class="facts">
@@ -821,10 +829,12 @@ footer{border-top:1px solid var(--rule);padding:22px 0 0;margin-top:40px;display
         <p class="psub">The longer version, plus how to reach me.</p>
 
         <h3 class="ph">My story</h3>
+        <div class="story"><img class="avatar lg" src="img/headshot.webp" alt="Abbilash Shivaparan" width="140" height="140" loading="lazy">
         <div class="prose">
           <p>I grew up in Princeton, New Jersey, and I'm Tamil. My first real tech job started in 2022, doing IT support at a medical office. It wasn't glamorous, but it taught me how to fix things quickly for people who just need them to work, and how seriously you have to take data when it belongs to patients.</p>
           <p>I started at Maryland in 2023 in Information Science. The next summer I started interning at NJ TRANSIT, and that's where data clicked for me. Seeing a Python script replace hours of people checking addresses by hand made me realize how much of a difference small tools can make.</p>
           <p>AI came next. My Pfizer externship got me deep into RAG and LLMs, and that turned into DataProcessBot. The more I built with AI, though, the more I wanted to know when it can actually be trusted, which is how I ended up doing research in Joel Chan's lab this fall.</p>
+        </div>
         </div>
 
         <h3 class="ph">How I like to work</h3>

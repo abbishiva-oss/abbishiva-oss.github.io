@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abbi Shivaparan</title>
+<meta name="description" content="Abbi Shivaparan. Information Science at the University of Maryland. Data, AI, and research on how far we can trust AI to read research papers.">
+<meta property="og:title" content="Abbi Shivaparan">
+<meta property="og:description" content="Information Science at UMD. I build data and AI tools, and research how far we can trust them.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2311131a'/%3E%3Cpath d='M18 46 30 18h4l12 28' stroke='%23fff' stroke-width='5' fill='none'/%3E%3Cpath d='M23 36h18' stroke='%233a55ff' stroke-width='5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f2;--panel:#ffffff;--ink:#16171b;--ink2:#3d3f46;--muted:#77797f;--faint:#a7a8ad;--rule:#e2e1dc;--rule2:#cdccc6;
+  --accent:#2f4bff;--accent-bg:#e9ecff;
+  --head:"Schibsted Grotesk",Arial,sans-serif;--body:"Schibsted Grotesk",Arial,sans-serif;--hw:500;--htrack:-.02em;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d0e10;--panel:#141518;--ink:#ebebe8;--ink2:#b8b9bd;--muted:#85868c;--faint:#5a5b61;--rule:#232428;--rule2:#313237;
+    --accent:#8291ff;--accent-bg:#1b1f3b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d0e10;--panel:#141518;--ink:#ebebe8;--ink2:#b8b9bd;--muted:#85868c;--faint:#5a5b61;--rule:#232428;--rule2:#313237;
+  --accent:#8291ff;--accent-bg:#1b1f3b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.kpis b,.nums b,.bar .v,.sched .w,.job .when,.prow summary .y{font-variant-numeric:tabular-nums}
+::selection{background:var(--accent);color:#fff}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule2);text-decoration-thickness:1px;text-underline-offset:3px;transition:color .15s,text-decoration-color .15s}
+a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+p{margin:0 0 1rem}
+h1,h2,h3,h4{margin:0;font-family:var(--head);font-weight:var(--hw);letter-spacing:var(--htrack)}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;z-index:99;background:var(--panel);padding:8px}
+
+.layout{display:grid;grid-template-columns:minmax(270px,320px) 1fr;gap:104px;max-width:1260px;margin:0 auto;padding:0 56px}
+aside{position:sticky;top:0;height:100vh;padding:64px 0 40px;display:flex;flex-direction:column}
+.who h1{font-size:1.6rem;line-height:1.15}
+.who .role{color:var(--ink2);margin-top:10px;font-size:.96rem;line-height:1.5}
+.who .bio{color:var(--muted);margin-top:16px;font-size:.95rem;max-width:30ch}
+.avail{margin-top:18px;font-size:.88rem;color:var(--accent)}
+.index{list-style:none;margin:44px 0 0;padding:0}
+.index a{display:flex;align-items:center;gap:12px;padding:6px 0;text-decoration:none;color:var(--muted);font-size:.95rem}
+.index a .bar{order:-1;height:1px;width:14px;background:var(--rule2);transition:width .25s,background .25s}
+.index a:hover{color:var(--ink)}
+.index a.on{color:var(--ink)}
+.index a.on .bar{width:40px;background:var(--ink)}
+.aside-foot{margin-top:auto;display:flex;flex-direction:column;gap:16px}
+.socials{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.92rem}
+.socials a{color:var(--ink2)}
+.meta-row{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px}
+.tbtn{background:none;border:1px solid var(--rule2);color:var(--ink2);border-radius:6px;padding:4px 10px;font:inherit;font-size:.82rem;cursor:pointer}
+.tbtn:hover{border-color:var(--ink);color:var(--ink)}
+
+main{padding:64px 0 40px;min-width:0}
+section{padding:0 0 110px}
+.sh{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--rule);padding-bottom:14px;margin-bottom:34px}
+.sh h2{font-size:1.45rem;color:var(--ink)}
+.sh .r{margin-left:auto;font-size:.85rem;color:var(--muted)}
+
+.statement{font-family:var(--head);font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.18;font-weight:var(--hw);letter-spacing:-.025em;max-width:21ch;margin-bottom:26px}
+.statement span{color:var(--muted)}
+.lead{font-size:1.08rem;color:var(--ink2);max-width:60ch}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:34px}
+.facts div{padding:15px 16px 15px 0}
+.facts div+div{padding-left:16px;border-left:1px solid var(--rule)}
+.facts dt{font-size:.82rem;color:var(--muted)}
+.facts dd{margin:3px 0 0;font-size:.96rem}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:6px;border:1px solid var(--rule2);background:var(--panel);color:var(--ink);font-size:.92rem;font-weight:500;text-decoration:none;transition:border-color .15s,background .15s}
+.btn:hover{border-color:var(--ink);color:var(--ink)}
+.btn.dark{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.dark:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn svg{width:15px;height:15px}
+
+.now{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.now div{background:var(--panel);padding:22px 24px}
+.now .k{font-size:.82rem;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between}
+.now .k b{font-weight:500;color:var(--accent)}
+.now h3{font-size:1.1rem;margin-bottom:6px}
+.now p{color:var(--ink2);font-size:.94rem;margin:0}
+.now .tbd{background:var(--bg)}
+
+.paper-title{font-size:clamp(1.6rem,2.8vw,2.15rem);line-height:1.2;max-width:26ch}
+.authors{margin:14px 0 30px;font-size:.92rem;color:var(--muted)}
+.authors b{color:var(--ink2);font-weight:500}
+.abstract{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:20px 24px;margin-bottom:40px;max-width:68ch}
+.abstract .k{font-family:var(--head);font-weight:var(--hw);font-size:1rem;margin-bottom:6px}
+.abstract p{color:var(--ink2);margin:0}
+.ph{font-size:1.15rem;margin:42px 0 12px}
+.prose{max-width:66ch}
+.prose p{color:var(--ink2)}
+.prose b{color:var(--ink);font-weight:500}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);margin:26px 0 8px;border-top:1px solid var(--rule)}
+.kpis div{padding:18px 18px 4px 0}
+.kpis div+div{padding-left:18px;border-left:1px solid var(--rule)}
+.kpis b{display:block;font-family:var(--head);font-size:2.4rem;font-weight:400;letter-spacing:-.03em;line-height:1}
+.kpis b small{font-size:1.1rem;color:var(--muted)}
+.kpis span{display:block;font-size:.85rem;color:var(--muted);margin-top:8px;line-height:1.4}
+
+figure{margin:28px 0 32px;padding:24px;background:var(--panel);border:1px solid var(--rule);border-radius:8px}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:18px;line-height:1.5}
+figcaption b{color:var(--ink2);font-weight:600;margin-right:4px}
+.pipe{display:flex;align-items:stretch}
+.pipe .s{flex:1 1 0;min-width:0;padding:12px 14px;border:1px solid var(--rule2);border-radius:6px;font-size:.86rem;line-height:1.35;background:var(--bg)}
+.pipe .s b{display:block;font-weight:600;color:var(--ink);font-size:.9rem;margin-bottom:2px}
+.pipe .s span{color:var(--muted)}
+.pipe .s.hl{border-color:var(--accent);background:var(--accent-bg)}
+.pipe .a{flex:0 0 22px;display:grid;place-items:center;color:var(--faint);font-size:.85rem}
+.bars{display:grid;gap:12px}
+.bar{display:grid;grid-template-columns:210px 1fr 36px;align-items:center;gap:14px;font-size:.9rem;color:var(--ink2)}
+.bar .t{height:6px;background:var(--bg);border-radius:3px;overflow:hidden}
+.bar .f{height:100%;width:0;background:var(--faint);border-radius:3px;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.bar.hi .f{background:var(--accent)}
+.bar .v{font-size:.85rem;color:var(--muted);text-align:right}
+.key{display:flex;gap:20px;margin-top:16px;font-size:.82rem;color:var(--muted)}
+.key i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th{text-align:left;font-weight:600;font-size:.85rem;color:var(--ink);padding:0 12px 10px 0;border-bottom:1px solid var(--rule2)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink2)}
+td.old{color:var(--muted)}
+td.old s{text-decoration-color:var(--faint)}
+tr:last-child td{border-bottom:0}
+.sched{list-style:none;padding:0;margin:0;border-top:1px solid var(--rule);max-width:66ch}
+.sched li{display:grid;grid-template-columns:110px 1fr 70px;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:.94rem;color:var(--ink2)}
+.sched .w{font-size:.88rem;color:var(--muted)}
+.sched .st{font-size:.85rem;text-align:right;color:var(--faint)}
+.sched li.done .st{color:var(--ink2)}
+.sched li.cur{color:var(--ink)}
+.sched li.cur .st{color:var(--accent);font-weight:500}
+.fn{font-size:.86rem;color:var(--muted);margin-top:22px;max-width:66ch;font-style:italic}
+
+.pindex{border-top:1px solid var(--rule2)}
+.prow{border-bottom:1px solid var(--rule)}
+.prow summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) 56px 22px;gap:20px;align-items:baseline;padding:20px 0}
+.prow summary::-webkit-details-marker{display:none}
+.prow summary h3{font-size:1.18rem;transition:color .15s}
+.prow summary .d{color:var(--muted);font-size:.94rem}
+.prow summary .y{font-size:.85rem;color:var(--muted);text-align:right}
+.prow summary .pm{position:relative;width:12px;height:12px;justify-self:end;align-self:center}
+.prow summary .pm::before,.prow summary .pm::after{content:"";position:absolute;left:0;top:5.5px;width:12px;height:1.5px;background:var(--ink2);transition:transform .25s}
+.prow summary .pm::after{transform:rotate(90deg)}
+.prow[open] summary .pm::after{transform:rotate(0)}
+.prow summary:hover h3{color:var(--accent)}
+.pbody{padding:0 0 36px}
+.pbody .links{display:flex;gap:18px;font-size:.92rem;margin-bottom:22px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.two .k,.pbody .k{font-family:var(--head);font-weight:var(--hw);font-size:.98rem;color:var(--ink);margin-bottom:8px}
+.pbody p,.pbody li{color:var(--ink2);font-size:.96rem}
+.pbody ul{margin:0;padding-left:1.1rem}
+.pbody li{margin-bottom:4px}
+.pbody figure{padding:18px;margin:26px 0}
+.stack{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:18px;padding:0;list-style:none;font-size:.85rem;color:var(--muted)}
+.stack li{margin:0}
+.stack li+li::before{content:"·";margin-right:14px;color:var(--faint)}
+.nums{display:flex;gap:40px;margin:6px 0 18px}
+.nums b{display:block;font-family:var(--head);font-size:1.6rem;font-weight:400;letter-spacing:-.02em;line-height:1.1}
+.nums span{font-size:.85rem;color:var(--muted)}
+
+.jobs{border-top:1px solid var(--rule2)}
+.job{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:30px 0;border-bottom:1px solid var(--rule)}
+.job .when{font-size:.88rem;color:var(--muted);padding-top:3px;line-height:1.55}
+.job h3{font-size:1.18rem}
+.job .org{color:var(--muted);font-size:.96rem;margin:2px 0 14px}
+.job p{color:var(--ink2);font-size:.96rem;max-width:64ch}
+.hl{border-left:2px solid var(--accent);padding:2px 0 2px 16px;margin:14px 0;color:var(--ink2);font-size:.96rem;max-width:64ch}
+.hl b{color:var(--ink);font-weight:600}
+
+.edu{display:flex;justify-content:space-between;gap:20px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.edu h3{font-size:1.3rem}
+.edu .y{font-size:.9rem;color:var(--muted)}
+.deg{color:var(--muted);margin-bottom:22px}
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin:26px 0 40px}
+.courses div{background:var(--panel);padding:16px 18px;font-size:.88rem;color:var(--muted);line-height:1.45}
+.courses .c{font-size:.8rem;color:var(--accent);font-weight:500}
+.courses b{display:block;color:var(--ink);font-weight:500;font-size:.98rem;margin:3px 0 3px}
+.skills{border-top:1px solid var(--rule2);margin:0}
+.skills div{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:.94rem}
+.skills dt{color:var(--muted)}
+.skills dd{margin:0;color:var(--ink2)}
+
+.outside{border-top:1px solid var(--rule2);max-width:760px;margin:0}
+.outside div{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:15px 0;border-bottom:1px solid var(--rule)}
+.outside dt{font-size:.94rem;color:var(--muted)}
+.outside dd{margin:0;color:var(--ink2);font-size:.96rem}
+
+.contact-line{font-family:var(--head);font-size:clamp(1.7rem,3.1vw,2.4rem);font-weight:var(--hw);letter-spacing:-.025em;line-height:1.2;max-width:22ch;margin-bottom:22px}
+.mail{display:inline-flex;align-items:center;gap:14px;font-size:1.1rem;padding:13px 18px;border:1px solid var(--rule2);border-radius:8px;background:var(--panel);cursor:pointer;color:var(--ink);font-family:var(--body)}
+.mail:hover{border-color:var(--ink)}
+.mail span{font-size:.82rem;color:var(--muted)}
+footer{border-top:1px solid var(--rule);padding:22px 0 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.84rem;color:var(--muted)}
+footer a{color:var(--muted)}
+
+.mtop{display:none}
+.fade{opacity:0;transform:translateY(8px);transition:opacity .7s ease,transform .7s ease}
+.fade.in{opacity:1;transform:none}
+
+@media (max-width:1100px){
+  .layout{gap:56px;padding:0 36px}
+  .prow summary{grid-template-columns:minmax(0,1fr) 56px 22px}
+  .prow summary .d{display:none}
+}
+@media (max-width:900px){
+  .layout{display:block;padding:0 20px}
+  aside{display:none}
+  .mtop{display:flex;position:sticky;top:0;z-index:10;justify-content:space-between;align-items:center;height:56px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);margin:0 -20px;padding:0 20px}
+  .mtop b{font-family:var(--head);font-weight:600;font-size:1.02rem}
+  .mtop .r{display:flex;gap:8px}
+  main{padding-top:36px}
+  .mintro{display:block!important;margin-bottom:22px}
+  section{padding-bottom:72px;scroll-margin-top:72px}
+  .sh .r{display:none}
+  .facts,.kpis{grid-template-columns:1fr 1fr}
+  .facts div:nth-child(3),.kpis div:nth-child(3){padding-left:0;border-left:0}
+  .facts div:nth-child(n+3),.kpis div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .courses{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .now,.courses,.two{grid-template-columns:1fr}
+  .pipe{flex-direction:column}
+  .pipe .a{flex-basis:18px;transform:rotate(90deg)}
+  .bar{grid-template-columns:1fr 36px;gap:6px 12px}
+  .bar .l{grid-column:1/3}
+  .job,.skills div,.outside div{grid-template-columns:1fr;gap:4px}
+  .prow summary{grid-template-columns:minmax(0,1fr) 22px;padding:16px 0}
+  .prow summary .y{display:none}
+  .sched li{grid-template-columns:90px 1fr}
+  .sched .st{display:none}
+  figure{padding:16px}
+  .kpis b{font-size:2rem}
+  table{font-size:.86rem}
+  .mail{font-size:.98rem;flex-wrap:wrap}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout">
+  <aside>
+    <div class="who">
+      <h1>Abbilash Shivaparan</h1>
+      <div class="role">Information Science, minor in Data Science<br>University of Maryland, Class of 2027</div>
+      <p class="bio">I build data and AI tools, and I research how far we can actually trust them.</p>
+      <div class="avail">Open to new grad 2027 roles</div>
+    </div>
+    <nav aria-label="Sections">
+      <ol class="index" id="index">
+        <li><a href="#about">About<span class="bar"></span></a></li>
+        <li><a href="#now">Now<span class="bar"></span></a></li>
+        <li><a href="#research">Research<span class="bar"></span></a></li>
+        <li><a href="#projects">Projects<span class="bar"></span></a></li>
+        <li><a href="#experience">Experience<span class="bar"></span></a></li>
+        <li><a href="#education">Education<span class="bar"></span></a></li>
+        <li><a href="#outside">Outside work<span class="bar"></span></a></li>
+        <li><a href="#contact">Contact<span class="bar"></span></a></li>
+      </ol>
+    </nav>
+    <div class="aside-foot">
+      <div class="socials">
+        <a href="https://github.com/abbishiva-oss">GitHub</a>
+        <a href="https://linkedin.com/in/abbi-shiva">LinkedIn</a>
+        <a href="mailto:abbi.shiva@gmail.com">Email</a>
+        <a href="resume.pdf">Resume</a>
+      </div>
+      <div class="meta-row"><span>College Park, MD · <span class="clock">--:--</span></span><button class="tbtn" data-theme-toggle>Theme</button></div>
+    </div>
+  </aside>
+
+  <div>
+    <header class="mtop">
+      <b>Abbi Shivaparan</b>
+      <div class="r"><a class="btn" href="resume.pdf" style="padding:6px 12px">Resume</a><button class="tbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div>
+    </header>
+
+    <main id="main">
+      <section id="about">
+        <div class="mintro" style="display:none">
+          <div class="avail" style="margin-top:0">Open to new grad 2027 roles</div>
+        </div>
+        <p class="statement">I build data and AI tools, <span>and lately I've been researching how far we can actually trust them.</span></p>
+        <p class="lead">I'm Abbi, an Information Science student at the University of Maryland with a minor in Data Science. I've done data work at NJ TRANSIT, built AI document tools during a Pfizer externship, and right now I'm doing research in Joel Chan's lab on how well AI breaks down research papers. Most of what I do sits somewhere between data, software, and research, and this site is basically all of it in one place.</p>
+        <dl class="facts">
+          <div><dt>Studying</dt><dd>Info Science + Data Science</dd></div>
+          <div><dt>Graduating</dt><dd>May 2027</dd></div>
+          <div><dt>Focus</dt><dd>RAG, LLM evaluation, ML</dd></div>
+          <div><dt>Based in</dt><dd>College Park / Princeton</dd></div>
+        </dl>
+        <div class="cta">
+          <a class="btn dark" href="resume.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>Download resume</a>
+          <a class="btn" href="#research">Read my research</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </section>
+
+      <section id="now">
+        <div class="sh"><h2>Now</h2><span class="r">Updated November 2026</span></div>
+        <div class="now fade">
+          <div><div class="k">Research <b>In progress</b></div><h3>Checking AI's work on research papers</h3><p>Measuring how often AI-written claims and evidence need a human to fix them, and what kinds of fixes. <a href="#research">More below</a>.</p></div>
+          <div><div class="k">Building <b>Active</b></div><h3>DataProcessBot</h3><p>Just wired extract and flag actions into the upload flow, so every file you drop in gets summarized, pulled apart, and checked at once.</p></div>
+          <div><div class="k">Career <b>Applying</b></div><h3>New grad 2027</h3><p>Looking at software, data, and AI roles. Seattle is at the top of my list.</p></div>
+          <div class="tbd"><div class="k">Next <b>Soon</b></div><h3>Something of my own</h3><p>I'm starting something new. Still working out the details, so more on this soon.</p></div>
+        </div>
+      </section>
+
+      <section id="research">
+        <div class="sh"><h2>Research</h2><span class="r">INST408G · Fall 2026</span></div>
+        <h3 class="paper-title">Extracting claims and evidence from research papers: frontier vs. local models vs. human review</h3>
+        <div class="authors"><b>Abbilash Shivaparan</b>, Ayomikun Ogunmolasuyi · Advised by Prof. Joel Chan · University of Maryland</div>
+
+        <div class="abstract">
+          <div class="k">Summary</div>
+          <p>Living reviews only work if breaking new papers into claims and evidence is cheap. We're testing whether AI can do that well enough to trust. Early review of a frontier model's output shows almost every evidence node it wrote still needed a human edit, and some of those edits changed what the result meant.</p>
+        </div>
+
+        <h4 class="ph">The problem</h4>
+        <div class="prose">
+          <p>Synthesis is when you pull together everything a field knows about one question, and it takes forever. One review we looked at screened almost 3,700 references just to end up with 28 studies. On top of that, its search stopped in 2005, so nothing newer is in it. "Living" reviews fix that by updating every time a new study comes out, but that only works if updating is cheap.</p>
+          <p>The expensive part is breaking each new paper down into its claims and the evidence behind them. Joel's lab stores research that way in something called a discourse graph, where every claim and every piece of evidence is its own node and they all link to each other. If AI could do that breakdown, living reviews would actually be doable. So our question is pretty simple: <b>is AI good enough at it that we can trust it?</b></p>
+        </div>
+
+        <h4 class="ph">Data and method</h4>
+        <div class="kpis fade">
+          <div><b>27</b><span>papers on using AI to evaluate research</span></div>
+          <div><b>205</b><span>nodes already drafted by a frontier model</span></div>
+          <div><b>0</b><span>of those reviewed by a person when we started</span></div>
+          <div><b>47<small>/49</small></b><span>evidence nodes reviewed so far needed edits</span></div>
+        </div>
+        <figure class="fade">
+          <div class="pipe" role="img" aria-label="27 papers, frontier model drafts 205 nodes, human review labels each node, a local model runs on the same papers, everything is scored">
+            <div class="s"><b>27 papers</b><span>the lab's vault</span></div><div class="a">→</div>
+            <div class="s"><b>Frontier model</b><span>drafted 205 nodes</span></div><div class="a">→</div>
+            <div class="s hl"><b>Human review</b><span>correct, edit, or delete</span></div><div class="a">→</div>
+            <div class="s"><b>Local model</b><span>same papers</span></div><div class="a">→</div>
+            <div class="s hl"><b>Scoring</b><span>precision, recall, F1, error types</span></div>
+          </div>
+          <figcaption><b>Fig. 1</b>Study pipeline. Human review is the reference both models get scored against.</figcaption>
+        </figure>
+
+        <h4 class="ph">Early findings</h4>
+        <div class="prose">
+          <p>A reviewer in the lab labels every AI node as Correct, Edit, or Delete and writes a short note about why. Out of the first 49 evidence nodes, not one was correct as written. 47 needed edits and the other two didn't apply. Research questions did a little better, with 4 out of 26 correct, and a few had to be split into two.</p>
+          <p>To be fair, "Edit" doesn't mean the AI was totally wrong, and a lot of the fixes are small. So we grouped the 41 written notes by what was actually wrong.</p>
+        </div>
+        <figure class="fade">
+          <div class="bars" id="bars">
+            <div class="bar"><span class="l">Missing context</span><div class="t"><div class="f" data-v="20"></div></div><span class="v">~20</span></div>
+            <div class="bar"><span class="l">Wording and style</span><div class="t"><div class="f" data-v="18"></div></div><span class="v">~18</span></div>
+            <div class="bar hi"><span class="l">Reframed, meaning changed</span><div class="t"><div class="f" data-v="8"></div></div><span class="v">~8</span></div>
+            <div class="bar hi"><span class="l">Quote didn't match node</span><div class="t"><div class="f" data-v="4"></div></div><span class="v">4</span></div>
+            <div class="bar hi"><span class="l">Dropped completely</span><div class="t"><div class="f" data-v="3"></div></div><span class="v">3</span></div>
+          </div>
+          <div class="key"><span><i style="background:var(--faint)"></i>Smaller fixes</span><span><i style="background:var(--accent)"></i>Problems for trust</span></div>
+          <figcaption><b>Fig. 2</b>Error types across 41 reviewer notes. One note can fall into more than one group.</figcaption>
+        </figure>
+        <div class="prose">
+          <p>The most common issue was missing context, like leaving out which model a study tested or how many papers were in it. The ones that worry me more are the reframes, where the way the AI wrote a node changed what the result actually meant. In one case, fixing it flipped a result from looking bad to looking really good. That's exactly the kind of mistake you can't let slide into a review people rely on.</p>
+        </div>
+
+        <h4 class="ph">How the plan changed</h4>
+        <div class="prose"><p>Honestly, our project looks pretty different from what we pitched in our first lightning talk. Once we got into the real data, we found out half the study basically already existed. The AI's output was sitting right there, and what was missing was the human side to compare it against.</p></div>
+        <figure class="fade">
+          <table>
+            <thead><tr><th>Step</th><th>Original plan</th><th>Revised plan</th></tr></thead>
+            <tbody>
+              <tr><td>Data</td><td class="old"><s>Wait for the dataset</s></td><td>Use the 27 papers already in the vault</td></tr>
+              <tr><td>Labels</td><td class="old"><s>Annotate papers from scratch</s></td><td>Review existing nodes the way the lab does</td></tr>
+              <tr><td>Frontier model</td><td class="old"><s>Run it ourselves through an API</s></td><td>The 205 existing nodes are the frontier results</td></tr>
+              <tr><td>Reliability</td><td class="old">Two of us label everything</td><td>Check our labels agree with the lab's reviewer first</td></tr>
+              <tr><td>Local model</td><td class="old">Gemma or Llama</td><td>Same, run on the same 27 papers</td></tr>
+            </tbody>
+          </table>
+          <figcaption><b>Table 1</b>Plan at Lightning Talk 1 vs. after getting into the real data.</figcaption>
+        </figure>
+        <div class="prose"><p>This version is more realistic for one semester. It's also closer to how a living review would really work, where a person checks what the AI drafts instead of doing everything by hand.</p></div>
+
+        <h4 class="ph">My role</h4>
+        <div class="prose"><p>I'm leading the local model and the scoring. That means setting up an open model, running it on the same 27 papers, and building the scoring that compares it and the frontier model against the human reviews. Ayomikun leads the node review and our labeling guide. We both review the same 10 nodes first so we know our labels actually hold up before we split the rest.</p></div>
+
+        <h4 class="ph">Timeline</h4>
+        <ul class="sched">
+          <li class="done"><span class="w">Week 6</span>Lightning Talk 1: original question and plan<span class="st">Done</span></li>
+          <li class="done"><span class="w">Week 10</span>Lightning Talk 2: real dataset, first findings, revised plan<span class="st">Done</span></li>
+          <li class="cur"><span class="w">Weeks 11–12</span>Agreement check on shared nodes, set up the local model<span class="st">Now</span></li>
+          <li><span class="w">Week 14</span>Run the local model, score everything, sort errors by type<span class="st">Next</span></li>
+          <li><span class="w">Week 15</span>Final presentation and report<span class="st">Dec</span></li>
+        </ul>
+        <p class="fn">Numbers here are early and still under review. I'll post final results once the report is done in December.</p>
+      </section>
+
+      <section id="projects">
+        <div class="sh"><h2>Projects</h2><span class="r">Select a project for the full write-up</span></div>
+        <div class="pindex">
+          <details class="prow" open>
+            <summary><h3>DataProcessBot</h3><span class="d">Desktop app for asking questions about your own documents</span><span class="y">2026</span><span class="pm"></span></summary>
+            <div class="pbody">
+              <div class="links"><a href="https://github.com/abbishiva-oss">Source code ↗</a></div>
+              <div class="two">
+                <div><div class="k">Why I built it</div><p>During my Pfizer externship I built a RAG pipeline that could answer questions about pharma documents. It worked, but it lived in a notebook, and nobody is going to open a notebook just to ask a PDF a question. I wanted something you could actually open and use.</p></div>
+                <div><div class="k">What it does</div><ul><li>A Tauri desktop app, so it feels native instead of being another browser tab</li><li>A FastAPI server that chunks, embeds, and stores documents in ChromaDB</li><li>Grounded Q&amp;A, so answers come from what your files actually say</li><li>Summarize, extract, and flag actions that run on every upload</li></ul></div>
+              </div>
+              <figure>
+                <div class="pipe" role="img" aria-label="Upload, chunk and embed, store in ChromaDB, retrieve, answer">
+                  <div class="s"><b>Upload</b><span>Tauri app</span></div><div class="a">→</div>
+                  <div class="s"><b>Chunk + embed</b><span>FastAPI</span></div><div class="a">→</div>
+                  <div class="s"><b>Store</b><span>ChromaDB</span></div><div class="a">→</div>
+                  <div class="s"><b>Retrieve</b><span>top chunks</span></div><div class="a">→</div>
+                  <div class="s hl"><b>Answer</b><span>grounded in your files</span></div>
+                </div>
+                <figcaption><b>Architecture</b>Everything runs locally on your machine.</figcaption>
+              </figure>
+              <div class="k">What I learned</div>
+              <p>Getting the desktop side and the Python side to talk to each other cleanly was harder than the actual AI part. That's been true for almost every project I've done. The glue is usually the hard part.</p>
+              <ul class="stack"><li>Python</li><li>FastAPI</li><li>ChromaDB</li><li>Tauri</li><li>RAG</li></ul>
+            </div>
+          </details>
+
+          <details class="prow">
+            <summary><h3>SubleaseHer</h3><span class="d">Full-stack sublease marketplace for college students</span><span class="y">2026</span><span class="pm"></span></summary>
+            <div class="pbody">
+              <div class="links"><a href="https://subleaseher.vercel.app">Live site ↗</a><a href="https://github.com/abbishiva-oss">Source code ↗</a></div>
+              <div class="two">
+                <div><div class="k">Why I built it</div><p>Finding a sublease in college is a mess. It's group chats, random Instagram posts, and spreadsheets, and you end up giving your number to strangers. I wanted one place where students could post a place, filter for what they need, and message each other safely.</p></div>
+                <div><div class="k">What it does</div><ul><li>Accounts and profiles, so you know who you're talking to</li><li>Listings with photo uploads you can edit or take down</li><li>Search with filters for location, price, beds, and dates</li><li>Messaging tied to each listing, with unread counts</li></ul></div>
+              </div>
+              <figure>
+                <div class="pipe" role="img" aria-label="Next.js, NextAuth checks every write, Prisma, PostgreSQL, deployed on Vercel">
+                  <div class="s"><b>Next.js</b><span>pages + API routes</span></div><div class="a">→</div>
+                  <div class="s hl"><b>NextAuth</b><span>checks every write</span></div><div class="a">→</div>
+                  <div class="s"><b>Prisma</b><span>schema I designed</span></div><div class="a">→</div>
+                  <div class="s"><b>PostgreSQL</b><span>users, listings, messages</span></div>
+                </div>
+                <figcaption><b>Architecture</b>Photos upload straight to Cloudinary. Deployed on Vercel.</figcaption>
+              </figure>
+              <div class="k">What I learned</div>
+              <p>This was my first time owning an app from the database all the way to deployment. The biggest lesson was security. It's easy to build a page that works, but you have to make sure nobody can edit someone else's listing just by changing a URL.</p>
+              <ul class="stack"><li>Next.js</li><li>TypeScript</li><li>PostgreSQL</li><li>Prisma</li><li>NextAuth</li><li>Tailwind</li><li>Cloudinary</li></ul>
+            </div>
+          </details>
+
+          <details class="prow">
+            <summary><h3>NBA Player DNA</h3><span class="d">Clustering 500+ players by how they actually play</span><span class="y">2026</span><span class="pm"></span></summary>
+            <div class="pbody">
+              <div class="links"><a href="https://nba-player-dna.streamlit.app">Live dashboard ↗</a><a href="https://github.com/abbishiva-oss">Source code ↗</a></div>
+              <div class="nums"><div><b>500+</b><span>players</span></div><div><b>8</b><span>archetypes</span></div><div><b>2025-26</b><span>season data</span></div></div>
+              <div class="two">
+                <div><div class="k">Why I built it</div><p>Listed positions don't say much about how someone actually plays anymore. I wanted to see what you'd get if you let the stats group players instead, and use that to answer a real question: who would actually fit on a given roster?</p></div>
+                <div><div class="k">What it does</div><ul><li>A pipeline that pulls traditional and advanced stats into SQLite</li><li>PCA to cut the stats down, then K-Means into 8 archetypes</li><li>A Streamlit dashboard with search, shot charts, and season trends</li><li>A roster fit score for any player and team</li></ul></div>
+              </div>
+              <div class="k" style="margin-top:22px">What I learned</div>
+              <p>Naming the clusters was honestly harder than building them. The math groups players together, but it doesn't tell you what to call the group or whether it makes sense to someone who actually watches the games.</p>
+              <ul class="stack"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>Plotly</li><li>Streamlit</li><li>SQLite</li></ul>
+            </div>
+          </details>
+
+          <details class="prow">
+            <summary><h3>EV Registration Analysis</h3><span class="d">Database design and SQL on 100K+ Washington EV records</span><span class="y">2025</span><span class="pm"></span></summary>
+            <div class="pbody">
+              <p>I took a big flat dataset of Washington State EV registrations and designed a proper relational database for it, normalized to 3NF with an ER diagram. Then I wrote SQL to look at adoption by county and vehicle type. The top 3 manufacturers make up 78% of all registrations, which is way more concentrated than I expected. I also pulled out the counties with the highest adoption, which matters for deciding where chargers should go.</p>
+              <ul class="stack"><li>SQL</li><li>3NF</li><li>ER diagrams</li></ul>
+            </div>
+          </details>
+
+          <details class="prow">
+            <summary><h3>PDF Research Buddy</h3><span class="d">Document Q&amp;A chatbot with Gradio and Gemini</span><span class="y">2026</span><span class="pm"></span></summary>
+            <div class="pbody">
+              <p>This started as a tutorial assignment, but I ended up changing most of it. The tutorial only handled one file, so I added multi-file upload with a dropdown to switch between documents. I also added chat export, a status indicator so the app doesn't just sit there while Gemini works, and rebuilt the layout with Gradio Blocks into two columns.</p>
+              <ul class="stack"><li>Python</li><li>Gradio</li><li>Gemini API</li><li>PyMuPDF</li></ul>
+            </div>
+          </details>
+
+          <details class="prow">
+            <summary><h3>Young Voter Outreach</h3><span class="d">Research pitch to New Carrollton's city council</span><span class="y">2025</span><span class="pm"></span></summary>
+            <div class="pbody">
+              <p>New Carrollton has talked about letting 16 and 17 year olds vote in local elections. If that happens, the city suddenly has a group of voters who probably don't follow city channels at all. Our pitch was simple: don't assume teens look for information the same way adults do. Find out first.</p>
+              <p>We designed an online survey about where teens would actually look, what confuses them, and which formats would help, plus one open question so they could tell us what we missed. We also used 2010 to 2020 Census data to show the city is growing and getting more diverse, which is why we recommended going through schools, community networks, and more than one language instead of just the city website.</p>
+              <ul class="stack"><li>Survey design</li><li>Census data</li><li>Civic research</li></ul>
+            </div>
+          </details>
+
+          <details class="prow">
+            <summary><h3>Hoopreme</h3><span class="d">In progress: mobile app for tracking workouts and game stats</span><span class="y">2026</span><span class="pm"></span></summary>
+            <div class="pbody">
+              <p>Most stat apps are built for organized teams. This one is for people who play pickup and want to know if they're actually getting better. It's a React Native app built with Expo, and right now I'm working on accounts, navigation, and the stat tracking screens.</p>
+              <ul class="stack"><li>React Native</li><li>Expo</li><li>JavaScript</li></ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="sh"><h2>Experience</h2><span class="r">2022 – present</span></div>
+        <div class="jobs">
+          <div class="job fade">
+            <div class="when">Jun – Aug 2026<br>10 weeks</div>
+            <div>
+              <h3>AI-Powered Document Insights Extern</h3>
+              <div class="org">Pfizer, via Extern</div>
+              <p>I worked on using AI to pull answers out of pharmaceutical documents. My main project was a RAG pipeline that answered questions like "what test methods were used for quality control?" straight from a certificate document.</p>
+              <div class="hl"><b>What I'm proud of:</b> the default PDF reader was turning later pages into garbage text, so answers were coming back wrong. I switched to PyMuPDF and it fixed it. I also bumped retrieval from 3 chunks to 10 after testing showed it kept missing half of a two-part answer.</div>
+              <p>That externship is pretty much where DataProcessBot came from.</p>
+              <ul class="stack"><li>RAG</li><li>LLMs</li><li>LlamaIndex</li><li>Embeddings</li><li>Prompt engineering</li></ul>
+            </div>
+          </div>
+          <div class="job fade">
+            <div class="when">May 2024 – Sep 2025</div>
+            <div>
+              <h3>Data Analytics and IT Intern</h3>
+              <div class="org">NJ TRANSIT</div>
+              <p>My first real data job. I built SQL queries and Excel reports that produced weekly operational stats from 5,000+ ride records, made 3 Power BI dashboards on ridership, and built a Crystal Reports dashboard that caught 150+ mismatched location IDs. At the end I presented a roadmap to management for fixing them.</p>
+              <div class="hl"><b>What I'm proud of:</b> people were checking pickup addresses by hand. I wrote Python that validated 2,000+ addresses automatically using distance calculations and Google's reverse geocoding, which cut manual review by about 60%. I also ranked the top 25 most common pickup spots to help with route planning.</div>
+              <ul class="stack"><li>SQL</li><li>Python</li><li>Excel</li><li>Power BI</li><li>Crystal Reports</li><li>Google APIs</li></ul>
+            </div>
+          </div>
+          <div class="job fade">
+            <div class="when">Jun 2022 – Present</div>
+            <div>
+              <h3>Office Assistant and IT Support</h3>
+              <div class="org">Windsor Internal Medicine and Geriatrics</div>
+              <p>I handle IT for a medical office, so patient data has to stay protected. I set up access controls, keep 10+ workstations patched to stay HIPAA compliant, and fix whatever breaks so the doctors and staff can keep working. A lot of it is also explaining tech to people who are busy and don't want to deal with it, which honestly taught me more about communication than any class.</p>
+              <ul class="stack"><li>IT support</li><li>HIPAA</li><li>Windows</li><li>Access control</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="sh"><h2>Education</h2><span class="r">2023 – 2027</span></div>
+        <div class="edu"><h3>University of Maryland, College Park</h3><span class="y">Expected May 2027</span></div>
+        <div class="deg">B.S. Information Science · Minor in Data Science</div>
+        <div class="prose"><p>Information Science ended up being the right fit for me because it's not just coding. It's data, people, and how information actually gets used, which is basically what every project on this page is about. These are the classes that shaped how I work the most.</p></div>
+        <div class="courses fade">
+          <div><span class="c">INST408G</span><b>Research in Info Science</b>My research project in Joel Chan's lab</div>
+          <div><span class="c">INST327</span><b>Database Design</b>Normalization, ER modeling, and SQL</div>
+          <div><span class="c">INST314</span><b>Statistics</b>Hypothesis tests, ANOVA, and regression in R</div>
+          <div><span class="c">DATA350</span><b>Data Science</b>Data wrangling and visualization in R</div>
+          <div><span class="c">DATA200</span><b>Data Ethics</b>Privacy, bias, fairness, and data ownership</div>
+          <div><span class="c">INST311</span><b>Information Organization</b>Metadata, schemas, and organizing information</div>
+        </div>
+        <dl class="skills">
+          <div><dt>Languages</dt><dd>Python, R, SQL, Java, JavaScript, TypeScript</dd></div>
+          <div><dt>AI and ML</dt><dd>RAG, LLMs, LlamaIndex, ChromaDB, embeddings, scikit-learn, PCA, K-Means</dd></div>
+          <div><dt>Data</dt><dd>pandas, tidyverse, Excel, Power BI, Crystal Reports, Streamlit</dd></div>
+          <div><dt>Web and apps</dt><dd>React, Next.js, FastAPI, Tauri, PostgreSQL, Prisma, NextAuth, Tailwind</dd></div>
+          <div><dt>Tools</dt><dd>Git, GitHub, Figma, Obsidian, Oracle SQL Developer, Google APIs</dd></div>
+          <div><dt>Certificates</dt><dd>Career Essentials in Data Analysis (Microsoft and LinkedIn), Data Analytics Specialist (LinkedIn Learning)</dd></div>
+          <div><dt>Clubs</dt><dd>Cyber Security Club, AWS Practitioner Club, UMD Club Basketball</dd></div>
+        </dl>
+      </section>
+
+      <section id="outside">
+        <div class="sh"><h2>Outside work</h2></div>
+        <dl class="outside">
+          <div><dt>Home</dt><dd>I grew up in Princeton, New Jersey, and I'm Tamil.</dd></div>
+          <div><dt>Side projects</dt><dd>Most of my projects started because something annoyed me and I figured I could fix it. Subleases were a mess, so I built SubleaseHer.</dd></div>
+          <div><dt>Sports</dt><dd>I play club basketball at UMD and pickup when I can.</dd></div>
+          <div><dt>Next</dt><dd>I'd love to end up in Seattle after I graduate.</dd></div>
+        </dl>
+      </section>
+
+      <section id="contact">
+        <div class="sh"><h2>Contact</h2></div>
+        <p class="contact-line">Hiring for 2027, or working on something interesting? I'd like to hear about it.</p>
+        <p class="lead" style="margin-bottom:24px">I'm looking for new grad roles in software, data, and AI, and I'm always down to talk about research or a project. Email is the best way to reach me.</p>
+        <button class="mail" id="copy" data-email="abbi.shiva@gmail.com">abbi.shiva@gmail.com <span id="copylbl">Copy</span></button>
+        <div class="cta">
+          <a class="btn dark" href="mailto:abbi.shiva@gmail.com">Send an email</a>
+          <a class="btn" href="https://linkedin.com/in/abbi-shiva">LinkedIn</a>
+          <a class="btn" href="https://github.com/abbishiva-oss">GitHub</a>
+          <a class="btn" href="resume.pdf">Resume</a>
+        </div>
+      </section>
+
+      <footer><span>© 2026 Abbilash Shivaparan</span><span>Last updated November 2026 · <a href="#about">Back to top</a></span></footer>
+    </main>
+  </div>
+</div>
+
+<script>
+const root=document.documentElement;
+try{const t=localStorage.getItem('theme');if(t)root.dataset.theme=t}catch(e){}
+document.querySelectorAll('[data-theme-toggle]').forEach(b=>b.onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+  try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+});
+const tick=()=>document.querySelectorAll('.clock').forEach(c=>c.textContent=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}));
+tick();setInterval(tick,30000);
+const links=[...document.querySelectorAll('#index a')];
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))}),{rootMargin:'-35% 0px -60% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>so.observe(s));
+const fo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');fo.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.fade').forEach(el=>fo.observe(el));
+const bars=document.getElementById('bars');
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){bars.querySelectorAll('.f').forEach(f=>f.style.width=(f.dataset.v/20*100)+'%');o.disconnect()}},{threshold:.4}).observe(bars);
+const copy=document.getElementById('copy'),lbl=document.getElementById('copylbl');
+copy.onclick=async()=>{try{await navigator.clipboard.writeText(copy.dataset.email);lbl.textContent='Copied'}catch(e){location.href='mailto:'+copy.dataset.email}setTimeout(()=>lbl.textContent='Copy',1800)};
+</script>
+</body>
+</html>
